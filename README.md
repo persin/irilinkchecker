@@ -1,4 +1,4 @@
-# irilinkchecker
+# iri link checker
 chrome extension 
 
 تشخیص سایت‌های با ترافیک داخلی
