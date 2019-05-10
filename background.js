@@ -6,8 +6,9 @@ chrome.runtime.onInstalled.addListener(function () {
         "contexts": ["link", "video", "image", "audio"]
     });
 });
-
+var badgeTimer;
 chrome.contextMenus.onClicked.addListener((info, tab) => {
+    clearTimeout(badgeTimer);
     chrome.browserAction.setBadgeText({
         "text": "...",
         "tabId": tab.id
@@ -44,7 +45,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
             "tabId": tab.id
         })
     }
-    setTimeout(() => {
+    badgeTimer = setTimeout(() => {
         chrome.browserAction.setBadgeText({
             "text": "",
             "tabId": tab.id
