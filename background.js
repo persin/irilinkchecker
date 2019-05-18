@@ -54,33 +54,38 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 })
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    let IRIflag = false;
-    window.sUrls.forEach(element => {
-        // element = element.url.toLowerCase().replace(new RegExp('https?://(www\.)?'),"");
-        if (request.url.toString().toLowerCase().search(element.url.toLowerCase()) >= 0) {
-            IRIflag = true
-            return;
-        }
-    });
-    if (IRIflag) {
-        chrome.browserAction.setIcon({
-            path: "icons/yes.png",
-            tabId: sender.tab.id
-        });
-        chrome.browserAction.setTitle({
-            title: "اینترنت داخلی",
-            tabId: sender.tab.id
-        });
+    if (request.hasOwnProperty('open')) {
+        chrome.tabs.create({ url: request.open })
     }
-    else {
-        chrome.browserAction.setIcon({
-            path: "icons/no.png",
-            tabId: sender.tab.id
+    else if (request.hasOwnProperty('url')) {
+        let IRIflag = false;
+        window.sUrls.forEach(element => {
+            // element = element.url.toLowerCase().replace(new RegExp('https?://(www\.)?'),"");
+            if (request.url.toString().toLowerCase().search(element.url.toLowerCase()) >= 0) {
+                IRIflag = true
+                return;
+            }
         });
-        chrome.browserAction.setTitle({
-            title: "اینترنت بین‌الملل",
-            tabId: sender.tab.id
-        });
+        if (IRIflag) {
+            chrome.browserAction.setIcon({
+                path: "icons/yes.png",
+                tabId: sender.tab.id
+            });
+            chrome.browserAction.setTitle({
+                title: "اینترنت داخلی",
+                tabId: sender.tab.id
+            });
+        }
+        else {
+            chrome.browserAction.setIcon({
+                path: "icons/no.png",
+                tabId: sender.tab.id
+            });
+            chrome.browserAction.setTitle({
+                title: "اینترنت بین‌الملل",
+                tabId: sender.tab.id
+            });
+        }
     }
 
 })
