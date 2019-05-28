@@ -26,7 +26,7 @@
 </head>
 
 <body>
-  <div class="dropdown-content">
+  <div class="dropdown-content" style="box-shadow: none; border-radius: 0;">
     <div class="dropdown-item">
       لینک‌های ایرانی و نیم‌بها
     </div>
@@ -34,14 +34,26 @@
       بسته به شرکت ارائه دهنده اینترنت ADSL شما ممکن است داده مصرفی داخلی برای شما حتی تا یک‌چهارم اینترنت بین‌المللی هم
       محاسبه شود
     </div>
-    <hr/>
+    <hr />
     <a id="list-button" href="#" class="dropdown-item has-text-right">
-      <span><span class="fa fa-bars" aria-hidden="true"></span> لیست لینک‌های داخلی</span>
+      <span><span class="fa fa-bars" aria-hidden="true"> </span> لیست لینک‌های داخلی</span>
     </a>
     <a id="tut-button" href="#" class="dropdown-item has-text-right">
-        <span><span class="fa fa-book" aria-hidden="true"></span> آموزش استفاده</span>
-      </a>
+      <span><span class="fa fa-book" aria-hidden="true"> </span> آموزش استفاده</span>
+    </a>
+    <a id="rate-button" href="#" class="dropdown-item has-text-right">
+      <span><span class="fa fa-star" aria-hidden="true"> </span> امتیازدهی به افزونه</span>
+    </a>
+    <a id="donate-button" style="color: orange" href="#" class="dropdown-item has-text-right">
+      <span><span class="fa fa-credit-card-alt" aria-hidden="true"> </span> حمایت مالی</span>
+    </a>
   </div>
+  
+  <footer class="card-footer text-success">
+    <a id="github-button" href="#" class="card-footer-item fa fa-github"></a>
+    <a id="share-button" href="#" class="card-footer-item fa fa-share-alt"></a>
+    <a id="support-button" href="#" class="card-footer-item fa fa-commenting"></a>
+  </footer>
 
   <script src="popup.js"></script>
 </body>
