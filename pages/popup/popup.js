@@ -6,8 +6,7 @@ listButton.addEventListener('click',() => {
 
 var tutButton = document.getElementById('tut-button');
 tutButton.addEventListener('click',() => {
-    // chrome.tabs.create({ url: '/pages/tutorial/index.html' })
-    chrome.runtime.sendMessage ({ "open": '/pages/listpage/index.html' })
+    chrome.runtime.sendMessage ({ "open": '/pages/tutorial/index.html' })
 })
 
 var rateButton = document.getElementById('rate-button');
