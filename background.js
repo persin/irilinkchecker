@@ -59,13 +59,15 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     }
     else if (request.hasOwnProperty('url')) {
         let IRIflag = false;
-        window.sUrls.forEach(element => {
-            // element = element.url.toLowerCase().replace(new RegExp('https?://(www\.)?'),"");
-            if (request.url.toString().toLowerCase().search(element.url.toLowerCase()) >= 0) {
-                IRIflag = true
-                return;
-            }
-        });
+        IRIflag = window.sUrls.some((element) => request.url.toString().toLowerCase().search(element.url) >= 0)
+
+        // window.sUrls.forEach(element => {
+        //     // element = element.url.toLowerCase().replace(new RegExp('https?://(www\.)?'),"");
+        //     if (request.url.toString().toLowerCase().search(element.url) >= 0) {
+        //         IRIflag = true
+        //         return;
+        //     }
+        // });
         if (IRIflag) {
             chrome.browserAction.setIcon({
                 path: "icons/yes.png",
