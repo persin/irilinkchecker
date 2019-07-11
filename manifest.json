@@ -1,8 +1,7 @@
 {
     "name": "IRI Link checker",
     "description": "تشخیص سایت‌های با ترافیک داخلی",
-    "version": "0.71",
-	"version_name": "0.71 980128",
+    "version": "0.80",
     "manifest_version": 2,
     "content_scripts": [
         {
